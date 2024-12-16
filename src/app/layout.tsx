@@ -3,7 +3,7 @@ import {Open_Sans} from 'next/font/google'
 import {ReactNode} from "react";
 import {Providers} from "@/app/providers";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar/Navbar";
 
 const inter = Open_Sans({subsets: ["latin"], weight: "500"});
 
