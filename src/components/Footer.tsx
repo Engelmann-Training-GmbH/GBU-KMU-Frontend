@@ -13,34 +13,24 @@ export default function Footer() {
                     <nav className="mt-10 text-sm" aria-label="quick links">
                         <div className="-my-1 flex justify-center gap-x-6">
                             <Link
-                                href="/versions"
+                                href="/imprint"
                                 className={classNames(
                                     "inline-block rounded-lg px-2 py-1 text-sm",
                                     "text-slate-700 dark:text-slate-300",
                                     "hover:bg-gray-200/90 hover:dark:bg-gray-500/20 "
                                 )}
                             >
-                                Versionen
+                                Impressum
                             </Link>
                             <Link
-                                href="/roadmap"
+                                href="/privacy"
                                 className={classNames(
                                     "inline-block rounded-lg px-2 py-1 text-sm",
                                     "text-slate-700 dark:text-slate-300",
                                     "hover:bg-gray-200/90 hover:dark:bg-gray-500/20 "
                                 )}
                             >
-                                Roadmap
-                            </Link>
-                            <Link
-                                href="/contact"
-                                className={classNames(
-                                    "inline-block rounded-lg px-2 py-1 text-sm",
-                                    "text-slate-700 dark:text-slate-300",
-                                    "hover:bg-gray-200/90 hover:dark:bg-gray-500/20 "
-                                )}
-                            >
-                                Kontakt
+                                Datenschutz
                             </Link>
                         </div>
                     </nav>
