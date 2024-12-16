@@ -36,7 +36,7 @@ export default function Header() {
                     />
                     Nerven
                 </span>
-                dank einfacher Erfassung und
+                {' '} dank einfacher Erfassung und
                 Verwaltung.
             </p>
 
