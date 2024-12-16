@@ -19,7 +19,7 @@ export default function NavbarLink({link, style}: {
             key={link.name}
             href={link.href}
             className={classNames(
-                pathname === link.href ? 'bg-gray-400/70 dark:bg-gray-800/70 text-black dark:text-white' : 'hover:bg-gray-400/70 hover:dark:bg-gray-800/70 text-black dark:text-white',
+                pathname === link.href ? 'bg-gray-200/90 dark:bg-gray-500/20 text-black dark:text-white' : 'hover:bg-gray-200/90 hover:dark:bg-gray-500/20 text-black dark:text-white',
                 "flex items-center gap-2",
                 style
             )}

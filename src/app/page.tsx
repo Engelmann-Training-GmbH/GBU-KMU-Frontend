@@ -1,174 +1,46 @@
-import {Fragment} from 'react'
-import {ChatBubbleLeftEllipsisIcon, TagIcon, UserCircleIcon} from '@heroicons/react/20/solid'
-
-const activity = [
-    {
-        id: 1,
-        type: 'comment',
-        person: {name: 'Eduardo Benz', href: '#'},
-        imageUrl:
-            'https://images.unsplash.com/photo-1520785643438-5bf77931f493?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80',
-        comment:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam. ',
-        date: '6d ago',
-    },
-    {
-        id: 2,
-        type: 'assignment',
-        person: {name: 'Hilary Mahy', href: '#'},
-        assigned: {name: 'Kristin Watson', href: '#'},
-        date: '2d ago',
-    },
-    {
-        id: 3,
-        type: 'tags',
-        person: {name: 'Hilary Mahy', href: '#'},
-        tags: [
-            {name: 'Bug', href: '#', color: 'fill-red-500'},
-            {name: 'Accessibility', href: '#', color: 'fill-indigo-500'},
-        ],
-        date: '6h ago',
-    },
-    {
-        id: 4,
-        type: 'comment',
-        person: {name: 'Jason Meyers', href: '#'},
-        imageUrl:
-            'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80',
-        comment:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam. Scelerisque amet elit non sit ut tincidunt condimentum. Nisl ultrices eu venenatis diam.',
-        date: '2h ago',
-    },
-]
-
-function classNames(...classes: string[]) {
-    return classes.filter(Boolean).join(' ')
-}
+import {ClockIcon, FaceFrownIcon} from "@heroicons/react/24/outline";
 
 export default function Home() {
 
     return (
         <div className="h-full mx-auto max-w-screen-2xl px-2 lg:px-6 xl:px-8">
-            <div className="md:flex md:items-center md:justify-between">
-                <h1 className="text-2xl text-grau-800 dark:text-grau-100">
-                    Heading
+            <div className="pb-16 pt-20 text-center lg:pt-32 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 dark:text-slate-50 sm:text-7xl">
+                    <span className="relative whitespace-nowrap text-blue-600">
+                        <svg
+                            aria-hidden="true"
+                            viewBox="0 0 418 42"
+                            className="absolute left-0 top-2/3 h-[0.58em] w-full fill-blue-300/70 dark:fill-blue-900/70"
+                            preserveAspectRatio="none"
+                        >
+                            <path
+                                d="M203.371.916c-26.013-2.078-76.686 1.963-124.73 9.946L67.3 12.749C35.421 18.062 18.2 21.766 6.004 25.934 1.244 27.561.828 27.778.874 28.61c.07 1.214.828 1.121 9.595-1.176 9.072-2.377 17.15-3.92 39.246-7.496C123.565 7.986 157.869 4.492 195.942 5.046c7.461.108 19.25 1.696 19.17 2.582-.107 1.183-7.874 4.31-25.75 10.366-21.992 7.45-35.43 12.534-36.701 13.884-2.173 2.308-.202 4.407 4.442 4.734 2.654.187 3.263.157 15.593-.78 35.401-2.686 57.944-3.488 88.365-3.143 46.327.526 75.721 2.23 130.788 7.584 19.787 1.924 20.814 1.98 24.557 1.332l.066-.011c1.201-.203 1.53-1.825.399-2.335-2.911-1.31-4.893-1.604-22.048-3.261-57.509-5.556-87.871-7.36-132.059-7.842-23.239-.254-33.617-.116-50.627.674-11.629.54-42.371 2.494-46.696 2.967-2.359.259 8.133-3.625 26.504-9.81 23.239-7.825 27.934-10.149 28.304-14.005.417-4.348-3.529-6-16.878-7.066Z"/>
+                        </svg>
+                        <span className="relative">GBU-KMU</span>
+                    </span>{' '}
+                    Ihre Unterstützung im Arbeitsschutz.
                 </h1>
-            </div>
-            <div className="mt-4">
-                <div className="flow-root">
-                    <ul role="list" className="-mb-8">
-                        {activity.map((activityItem, activityItemIdx) => (
-                            <li key={activityItem.id}>
-                                <div className="relative pb-8">
-                                    {activityItemIdx !== activity.length - 1 ? (
-                                        <div aria-hidden="true"
-                                             className="absolute left-5 top-5 -ml-px h-full w-0.5 bg-gray-200"/>
-                                    ) : null}
-                                    <div className="relative flex items-start space-x-3">
-                                        {activityItem.type === 'comment' ? (
-                                            <>
-                                                <div className="relative">
-                                                    <img
-                                                        alt=""
-                                                        src={activityItem.imageUrl}
-                                                        className="flex size-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white"
-                                                    />
+                <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700 dark:text-slate-300 block">
+                    GBU-KMU ist die All-in-One-Lösung für effizienten Arbeitsschutz in Ihrem Unternehmen. Sparen Sie
+                    <span className="inline-flex items-baseline">
+                        <ClockIcon
+                            aria-hidden={true}
+                            className="self-center w-4 h-4 rounded-full mx-1"
+                        />
+                        Zeit
+                    </span>
+                    {' '} &
+                    <span className="inline-flex items-baseline">
+                        <FaceFrownIcon
+                            aria-hidden={true}
+                            className="self-center w-4 h-4 rounded-full mx-1"
+                        />
+                        Nerven
+                    </span>
+                    dank einfacher Erfassung und
+                    Verwaltung.
+                </p>
 
-                                                    <div
-                                                        className="absolute -bottom-0.5 -right-1 rounded-tl bg-white px-0.5 py-px">
-                                                        <ChatBubbleLeftEllipsisIcon aria-hidden="true"
-                                                                                    className="size-5 text-gray-400"/>
-                                                    </div>
-                                                </div>
-                                                <div className="min-w-0 flex-1">
-                                                    <div>
-                                                        <div className="text-sm">
-                                                            <a href={activityItem.person.href}
-                                                               className="font-medium text-gray-900">
-                                                                {activityItem.person.name}
-                                                            </a>
-                                                        </div>
-                                                        <p className="mt-0.5 text-sm text-gray-500">Commented {activityItem.date}</p>
-                                                    </div>
-                                                    <div className="mt-2 text-sm text-gray-700">
-                                                        <p>{activityItem.comment}</p>
-                                                    </div>
-                                                </div>
-                                            </>
-                                        ) : activityItem.type === 'assignment' ? (
-                                            <>
-                                                <div>
-                                                    <div className="relative px-1">
-                                                        <div
-                                                            className="flex size-8 items-center justify-center rounded-full bg-gray-100 ring-8 ring-white">
-                                                            <UserCircleIcon aria-hidden="true"
-                                                                            className="size-5 text-gray-500"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="min-w-0 flex-1 py-1.5">
-                                                    <div className="text-sm text-gray-500">
-                                                        <a href={activityItem.person.href}
-                                                           className="font-medium text-gray-900">
-                                                            {activityItem.person.name}
-                                                        </a>{' '}
-                                                        assigned{' '}
-                                                        <a href={activityItem?.assigned?.href}
-                                                           className="font-medium text-gray-900">
-                                                            {activityItem?.assigned?.name}
-                                                        </a>{' '}
-                                                        <div className="whitespace-nowrap">{activityItem.date}</div>
-                                                    </div>
-                                                </div>
-                                            </>
-                                        ) : activityItem.type === 'tags' ? (
-                                            <>
-                                                <div>
-                                                    <div className="relative px-1">
-                                                        <div
-                                                            className="flex size-8 items-center justify-center rounded-full bg-gray-100 ring-8 ring-white">
-                                                            <TagIcon aria-hidden="true"
-                                                                     className="size-5 text-gray-500"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="min-w-0 flex-1 py-0">
-                                                    <div className="text-sm/8 text-gray-500">
-                                                        <div className="mr-0.5">
-                                                            <a href={activityItem.person.href}
-                                                               className="font-medium text-gray-900">
-                                                                {activityItem.person.name}
-                                                            </a>{' '}
-                                                            added tags
-                                                        </div>
-                                                        {' '}
-                                                        <div className="mr-0.5">
-                                                            {activityItem?.tags?.map((tag) => (
-                                                                <Fragment key={tag.name}>
-                                                                    <a
-                                                                        href={tag.href}
-                                                                        className="inline-flex items-center gap-x-1.5 rounded-full px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200"
-                                                                    >
-                                                                        <svg viewBox="0 0 6 6" aria-hidden="true"
-                                                                             className={classNames(tag.color, 'size-1.5')}>
-                                                                            <circle r={3} cx={3} cy={3}/>
-                                                                        </svg>
-                                                                        {tag.name}
-                                                                    </a>{' '}
-                                                                </Fragment>
-                                                            ))}
-                                                        </div>
-                                                        <div className="whitespace-nowrap">{activityItem.date}</div>
-                                                    </div>
-                                                </div>
-                                            </>
-                                        ) : null}
-                                    </div>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
             </div>
         </div>
     );

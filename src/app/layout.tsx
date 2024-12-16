@@ -4,8 +4,10 @@ import {ReactNode} from "react";
 import {Providers} from "@/app/providers";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer";
+import clsx from "clsx";
 
-const inter = Open_Sans({subsets: ["latin"], weight: "500"});
+const open_sans = Open_Sans({subsets: ["latin"], weight: "500"});
 
 export const metadata: Metadata = {
     title: {
@@ -32,13 +34,21 @@ export default function RootLayout({
     children: ReactNode;
 }>) {
     return (
-        <html lang="de" suppressHydrationWarning>
-        <body className={inter.className + " h-screen flex flex-col justify-between"}>
+        <html
+            lang="de"
+            className={clsx(
+                open_sans.className,
+                "h-full scroll-smooth antialiased"
+            )}
+            suppressHydrationWarning
+        >
+        <body className="flex h-full flex-col">
         <Providers>
             <Navbar/>
-            <main className="prose p-4 text-ce mb-auto">
+            <main>
                 {children}
             </main>
+            <Footer/>
         </Providers>
         </body>
         </html>
