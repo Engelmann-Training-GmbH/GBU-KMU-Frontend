@@ -1,6 +1,7 @@
 import Image from "next/image";
 import gbu_not_found from "@/images/404/404.svg";
 import gbu_not_found_dark from "@/images/404/404_dark.svg";
+import {ArrowUturnLeftIcon} from '@heroicons/react/24/outline'
 import Link from "next/link";
 
 export default function NotFound() {
@@ -25,12 +26,9 @@ export default function NotFound() {
                         laden.</p>
                     <Link
                         href="/"
-                        className="inline-flex items-center mt-2 font-medium text-blue-600 dark:text-blue-500 fill-black dark:fill-white hover:underline"
+                        className="inline-flex items-center gap-2 mt-2 font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                             fill="fill-inherite">
-                            <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/>
-                        </svg>
+                        <ArrowUturnLeftIcon aria-hidden="true" className="h-3"/>
                         zurück zur Startseite
                     </Link>
                 </div>
