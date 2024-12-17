@@ -18,6 +18,7 @@ const schema = z.object({
     privacy: z.string({message: "Dieses Feld muss ausgefüllt sein."})
 })
 
+// eslint-disable-next-line  @typescript-eslint/no-explicit-any
 export async function sendContactRequest(prevState: any, formData: FormData) {
     const validatedFields = schema.safeParse({
         anrede: formData.get('anrede'),
@@ -87,6 +88,7 @@ export async function sendContactRequest(prevState: any, formData: FormData) {
                 </>
             ),
         });
+        // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     } catch (error: any) {
         return {
             message: error?.response?.message || '',

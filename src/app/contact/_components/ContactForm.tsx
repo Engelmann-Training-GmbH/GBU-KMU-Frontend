@@ -29,6 +29,7 @@ export default function ContactForm() {
         errors: {},
         success: false,
     })
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     const [errors, setErrors] = useState<any>({})
     const router = useRouter();
 

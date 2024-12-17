@@ -2,13 +2,14 @@ import {NextResponse} from "next/server";
 import {headers} from "next/headers";
 import moment from "moment";
 
-export async function POST(request: Request, {params}: { params: { key: string } }) {
+export async function POST(request: Request, {params}: { params: Promise<{ key: string }> }) {
     const {key} = await params
     const header = await headers()
     let requestBody
     try {
         requestBody = await request.json()
-    } catch (error) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/no-unused-vars
+    } catch (error: any) {
         return new NextResponse('Your body is malformed!', {status: 500});
     }
 
