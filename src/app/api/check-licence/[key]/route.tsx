@@ -48,7 +48,20 @@ export async function POST(request: Request, {params}: { params: Promise<{ key: 
     }
 
     if (requestBody.companies > licenceToCheck.companyLimit) {
-        return new NextResponse('You have reached your company limit!', {status: 418});
+        return NextResponse.json({
+                expires: licenceToCheck.expirationDate,
+                companyLimit: licenceToCheck.companyLimit,
+                version: licenceToCheck.version,
+            },
+            {
+                status: 418,
+                statusText: 'You have reached your company limit!',
+                headers: {
+                    'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
+                }
+            });
     }
 
     return NextResponse.json({
