@@ -6,6 +6,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer";
 import clsx from "clsx";
+import {Toaster} from "react-hot-toast";
 
 const open_sans = Open_Sans({subsets: ["latin"], weight: "500"});
 
@@ -47,6 +48,10 @@ export default function RootLayout({
             <Navbar/>
             <main>
                 {children}
+                <Toaster
+                    position="bottom-right"
+                    reverseOrder={false}
+                />
             </main>
             <Footer/>
         </Providers>
