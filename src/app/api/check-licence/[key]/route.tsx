@@ -20,7 +20,7 @@ export async function POST(request: Request, {params}: { params: Promise<{ key: 
     // Check if licence Exists
     const licenceToCheck = licences.find(licence => licence.licence == key)
     if (!licenceToCheck) {
-        return new NextResponse('Couldn\'t find the provided licence key!', {status: 404});
+        return new NextResponse('Couldn\'t find the provided licence key!', {status: 400});
     }
     // Check Version
     if (!requestBody.version) {
@@ -34,7 +34,7 @@ export async function POST(request: Request, {params}: { params: Promise<{ key: 
     const host = header.get('x-forwarded-for')
     if (!host) {
         console.log('Licence check failed for host: ' + host);
-        return new NextResponse('Your host couldn\'t be detected!', {status: 404});
+        return new NextResponse('Your host couldn\'t be detected!', {status: 400});
     }
 
     if (host != licenceToCheck.serverRef) {
