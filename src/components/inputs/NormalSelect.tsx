@@ -13,9 +13,11 @@ interface Props {
     label: string
     description?: string
     options: string[]
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     defaultValue: any
     isDisabled: boolean
     required: boolean
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     error: any
     onChange?: (value: string) => void
 }

@@ -14,6 +14,7 @@ interface Props {
     initChecked: boolean
     isDisabled: boolean
     required: boolean
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     error: any
     onChange?: (checked: boolean) => void
 }

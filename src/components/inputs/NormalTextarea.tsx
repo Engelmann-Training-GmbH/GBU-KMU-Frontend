@@ -13,10 +13,12 @@ interface Props {
     label: string
     description?: string
     placeholder?: string
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     defaultValue: any
     rows: number
     isDisabled: boolean
     required: boolean
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     error: any
     onChange?: (value: string) => void
 }
