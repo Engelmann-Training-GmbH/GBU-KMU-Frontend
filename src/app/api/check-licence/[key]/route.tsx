@@ -73,7 +73,7 @@ const licences = [
         contact: "Maicon GmbH",
         expirationDate: moment('2025-12-24'),
         version: "1",
-        serverRef: "::1",
+        serverRef: "91.224.227.248",
         companyLimit: 20
     },
 ]
