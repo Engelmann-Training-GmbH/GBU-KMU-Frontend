@@ -63,6 +63,23 @@ export async function POST(request: Request, {params}: { params: Promise<{ key: 
                 }
             });
     }
+    const now = moment();
+    if(now.isAfter(moment(licenceToCheck.expirationDate))) {
+        return NextResponse.json({
+                expires: licenceToCheck.expirationDate,
+                companyLimit: licenceToCheck.companyLimit,
+                version: licenceToCheck.version,
+            },
+            {
+                status: 402,
+                statusText: 'Your licence expired!',
+                headers: {
+                    'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+                    'Pragma': 'no-cache',
+                    'Expires': '0'
+                }
+            });
+    }
 
     return NextResponse.json({
             expires: licenceToCheck.expirationDate,
@@ -84,8 +101,35 @@ const licences = [
         licence: "9022fcf6-a056-4df4-8284-bac65ef9ad2a",
         customer: "Maicon GmbH",
         contact: "Maicon GmbH",
-        expirationDate: moment('2025-12-24'),
+        expirationDate: moment('2024-12-17'),
         version: "1",
+        serverRef: "91.224.227.248",
+        companyLimit: 20
+    },
+    {
+        licence: "9022fcf6-a056-4df4-8284-bac65ef9ad2b",
+        customer: "Maicon GmbH",
+        contact: "Maicon GmbH",
+        expirationDate: moment('2025-12-17'),
+        version: "1",
+        serverRef: "91.224.227.248",
+        companyLimit: 20
+    },
+    {
+        licence: "9022fcf6-a056-4df4-8284-bac65ef9ad2c",
+        customer: "Maicon GmbH",
+        contact: "Maicon GmbH",
+        expirationDate: moment('2024-12-16'),
+        version: "2",
+        serverRef: "91.224.227.248",
+        companyLimit: 20
+    },
+    {
+        licence: "9022fcf6-a056-4df4-8284-bac65ef9ad2d",
+        customer: "Maicon GmbH",
+        contact: "Maicon GmbH",
+        expirationDate: moment('2024-12-18'),
+        version: "2",
         serverRef: "91.224.227.248",
         companyLimit: 20
     },
