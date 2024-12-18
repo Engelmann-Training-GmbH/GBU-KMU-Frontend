@@ -110,7 +110,7 @@ const licences = [
         contact: "service@engelmann.training",
         expirationDate: moment('2100-12-24'),
         version: "1",
-        serverRef: "188.245.124.29",
+        serverRef: "172.18.0.1",
         companyLimit: 20
     },
     {
