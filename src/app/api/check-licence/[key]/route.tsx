@@ -101,18 +101,18 @@ const licences = [
         licence: "9022fcf6-a056-4df4-8284-bac65ef9ad2a",
         customer: "Maicon GmbH",
         contact: "Maicon GmbH",
-        expirationDate: moment('2024-12-17'),
+        expirationDate: moment('2025-12-24'),
         version: "1",
-        serverRef: "91.224.227.248",
-        companyLimit: 20
+        serverRef: "84.142.52.106",
+        companyLimit: 3
     },
     {
         licence: "9022fcf6-a056-4df4-8284-bac65ef9ad2b",
         customer: "Maicon GmbH",
         contact: "Maicon GmbH",
         expirationDate: moment('2025-12-17'),
-        version: "1",
-        serverRef: "91.224.227.248",
+        version: "2",
+        serverRef: "84.142.52.106",
         companyLimit: 20
     },
     {
@@ -120,17 +120,8 @@ const licences = [
         customer: "Maicon GmbH",
         contact: "Maicon GmbH",
         expirationDate: moment('2024-12-16'),
-        version: "2",
-        serverRef: "91.224.227.248",
-        companyLimit: 20
-    },
-    {
-        licence: "9022fcf6-a056-4df4-8284-bac65ef9ad2d",
-        customer: "Maicon GmbH",
-        contact: "Maicon GmbH",
-        expirationDate: moment('2024-12-18'),
-        version: "2",
-        serverRef: "91.224.227.248",
+        version: "1",
+        serverRef: "84.142.52.106",
         companyLimit: 20
     },
 ]
