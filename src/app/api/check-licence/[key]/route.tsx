@@ -124,4 +124,13 @@ const licences = [
         serverRef: "84.142.52.106",
         companyLimit: 20
     },
+    {
+        licence: "9022fcf6-a056-4df4-8284-bac65ef9ad2d",
+        customer: "Maicon GmbH",
+        contact: "Maicon GmbH",
+        expirationDate: moment('2024-12-16'),
+        version: "1",
+        serverRef: "84.142.52.156",
+        companyLimit: 20
+    },
 ]
