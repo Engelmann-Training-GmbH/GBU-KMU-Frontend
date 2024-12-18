@@ -32,7 +32,6 @@ export async function sendContactRequest(prevState: any, formData: FormData) {
         message: formData.get('message'),
         privacy: formData.get('privacy'),
     })
-    console.log(validatedFields.data)
 
     if (!validatedFields.success) {
         return {
