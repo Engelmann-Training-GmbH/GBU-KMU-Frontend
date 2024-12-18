@@ -48,7 +48,7 @@ export async function POST(request: Request, {params}: { params: Promise<{ key: 
         return new NextResponse('The current number of companies must be provided!', {status: 400});
     }
 
-    if (requestBody.companies > licenceToCheck.companyLimit) {
+    if (requestBody.companies >= licenceToCheck.companyLimit) {
         console.log('Licence check failed for licence: ' + key + "(Host: " + host + "  Companies: " + requestBody.companies +
             "): Company Limit reached!"
         );
