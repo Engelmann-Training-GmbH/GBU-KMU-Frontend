@@ -28,17 +28,18 @@ export async function POST(request: Request, {params}: { params: Promise<{ key: 
     }
 
     if (requestBody.version.substring(0, 1) != licenceToCheck.version) {
+        console.log('Licence check failed for licence: ' + key + "(Host: ?): Wrong version!");
         return new NextResponse('Your license-version is not suitable for the version of your GBU-KMU!', {status: 409});
     }
     // Check ServerRef
     const host = header.get('x-forwarded-for')
     if (!host) {
-        console.log('Licence check failed for host: ' + host);
+        console.log('Licence check failed for licence: ' + key + "(Host: " + host + "): Missing host!");
         return new NextResponse('Your host couldn\'t be detected!', {status: 400});
     }
 
     if (host != licenceToCheck.serverRef) {
-        console.log('Licence check failed for licence [' + licenceToCheck.licence + '] for host: ' + host);
+        console.log('Licence check failed for licence: ' + key + "(Host: " + host + "): Wrong host!");
         return new NextResponse('Your licence dosen\'t match your host!', {status: 403});
     }
 
@@ -48,6 +49,9 @@ export async function POST(request: Request, {params}: { params: Promise<{ key: 
     }
 
     if (requestBody.companies > licenceToCheck.companyLimit) {
+        console.log('Licence check failed for licence: ' + key + "(Host: " + host + "  Companies: " + requestBody.companies +
+            "): Company Limit reached!"
+        );
         return NextResponse.json({
                 expires: licenceToCheck.expirationDate,
                 companyLimit: licenceToCheck.companyLimit,
@@ -64,7 +68,10 @@ export async function POST(request: Request, {params}: { params: Promise<{ key: 
             });
     }
     const now = moment();
-    if(now.isAfter(moment(licenceToCheck.expirationDate))) {
+    if (now.isAfter(moment(licenceToCheck.expirationDate))) {
+        console.log('Licence check failed for licence: ' + key + "(Host: " + host + "  Companies: " + requestBody.companies +
+            "): Expired!"
+        );
         return NextResponse.json({
                 expires: licenceToCheck.expirationDate,
                 companyLimit: licenceToCheck.companyLimit,
@@ -80,7 +87,7 @@ export async function POST(request: Request, {params}: { params: Promise<{ key: 
                 }
             });
     }
-
+    console.log('Licence successfully checked for licence: ' + key + "(Host: " + host + "  Companies: " + requestBody.companies + ")");
     return NextResponse.json({
             expires: licenceToCheck.expirationDate,
             companyLimit: licenceToCheck.companyLimit,
@@ -98,39 +105,30 @@ export async function POST(request: Request, {params}: { params: Promise<{ key: 
 
 const licences = [
     {
-        licence: "9022fcf6-a056-4df4-8284-bac65ef9ad2a",
-        customer: "Maicon GmbH",
-        contact: "Maicon GmbH",
+        licence: "4295c6a3-2c1c-464e-a397-c35bbd71fcf9",
+        customer: "Engelmann.Training GmbH",
+        contact: "service@engelmann.training",
+        expirationDate: moment('2100-12-24'),
+        version: "1",
+        serverRef: "188.245.124.29",
+        companyLimit: 20
+    },
+    {
+        licence: "ad040079-a0bf-4140-b910-5af024d73160",
+        customer: "Engelmann.Training GmbH (DEV)",
+        contact: "entwicklung@engelmann.training",
+        expirationDate: moment('2100-12-24'),
+        version: "1",
+        serverRef: "84.142.52.106",
+        companyLimit: 50
+    },
+    {
+        licence: "f47c0d9e-df9e-47e6-b3a4-720262e483a6",
+        customer: "MAICON GmbH",
+        contact: "reiner.maier@maicon-gmbh.de",
         expirationDate: moment('2025-12-24'),
         version: "1",
-        serverRef: "84.142.52.106",
-        companyLimit: 3
-    },
-    {
-        licence: "9022fcf6-a056-4df4-8284-bac65ef9ad2b",
-        customer: "Maicon GmbH",
-        contact: "Maicon GmbH",
-        expirationDate: moment('2025-12-17'),
-        version: "2",
-        serverRef: "84.142.52.106",
-        companyLimit: 20
-    },
-    {
-        licence: "9022fcf6-a056-4df4-8284-bac65ef9ad2c",
-        customer: "Maicon GmbH",
-        contact: "Maicon GmbH",
-        expirationDate: moment('2024-12-16'),
-        version: "1",
-        serverRef: "84.142.52.106",
-        companyLimit: 20
-    },
-    {
-        licence: "9022fcf6-a056-4df4-8284-bac65ef9ad2d",
-        customer: "Maicon GmbH",
-        contact: "Maicon GmbH",
-        expirationDate: moment('2024-12-16'),
-        version: "1",
-        serverRef: "84.142.52.156",
+        serverRef: "0.0.0.0",
         companyLimit: 20
     },
 ]
