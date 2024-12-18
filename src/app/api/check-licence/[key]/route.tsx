@@ -20,7 +20,7 @@ export async function POST(request: Request, {params}: { params: Promise<{ key: 
     // Check if licence Exists
     const licenceToCheck = licences.find(licence => licence.licence == key)
     if (!licenceToCheck) {
-        return new NextResponse('Couldn\'t find the provided licence key!', {status: 400});
+        return new NextResponse('Couldn\'t find the provided licence key!', {status: 406});
     }
     // Check Version
     if (!requestBody.version) {
