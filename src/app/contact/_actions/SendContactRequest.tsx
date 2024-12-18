@@ -58,6 +58,7 @@ export async function sendContactRequest(prevState: any, formData: FormData) {
             from: 'contact-form@gbu-kmu.de',
             to: toMail,
             subject: 'GBU-KMU Kontaktanfrage: ' + validatedFields.data.type,
+            replyTo: validatedFields.data.email,
             react: (
                 <>
                     <p>Moin,</p>
